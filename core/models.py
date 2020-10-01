@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+
 # Create your models here.
 
 class Company(models.Model):
@@ -12,9 +13,12 @@ class Company(models.Model):
     # This is auto created and updated date
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
-
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
+    logo = models.ImageField(upload_to='company_logo', null=True)
+    name = models.CharField(max_length=120, null=True)
+    legal_number = models.CharField(max_length=120, null=True)
+
 
 
 class Department(models.Model):
@@ -26,6 +30,11 @@ class Department(models.Model):
 
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
+
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=120, null=True)
+    status = models.BooleanField(null=True)
+    admin =  models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
 
 class Employee(models.Model):
@@ -53,6 +62,7 @@ class Employee(models.Model):
 
     create_user = models.UUIDField(editable=False, null=True)
     update_user = models.UUIDField(editable=False, null=True)
+    department = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
 
     # Simple title return queue for django admin or auto template
     def __str__(self):

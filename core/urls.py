@@ -1,16 +1,17 @@
-from django.urls import path
+from django.urls import path, include
+from . import view
+
 
 app_name = 'core'
 
 urlpatterns = [
-
-   # path('process-list-full', ProcessList.as_view(), name='process-list-full'),
+   path('process-list-full/', views.ProcessList, name='process-list'),
    # path('process-list-partner', ProcessListPartner.as_view(), name='process-list-partner'),
    # path('process-list-owner', ProcessListOwner.as_view(), name='process-list-owner'),
-   # path('process-create', ProcessCreate.as_view(), name='process-create'),
+   path('process-create/', views.ProcessCreate, name='create'),
    # path('process-detail/<uuid:pk>', ProcessDetail.as_view(), name='process-detail'),
-   # path('process-update/<uuid:pk>', ProcessUpdate.as_view(), name='process-update'),
-   # path('process-delete/<uuid:pk>', ProcessDelete.as_view(), name='process-delete'),
+   path('process-update/<id>', views.ProcessUpdate, name='process-update'),
+   path('process-delete/<id>', views.ProcessDelete, name='process-delete'),
 
 
 ]
