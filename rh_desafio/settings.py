@@ -8,7 +8,7 @@ SECRET_KEY = 'w6!ugy+i5w8@w@*sn!nscxly!_hcn2-4&1cvs=@scwc-b)60kt'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://rh-app-deployed.herokuapp.com/"]
 
 
 INSTALLED_APPS = [
