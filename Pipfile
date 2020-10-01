@@ -6,7 +6,19 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pillow = "*"
+psycopg2-binary = "*"
+django-heroku = "*"
+gunicorn = "*"
+asgiref="*"
+dj-database-url="*"
+Django="*"
+django-heroku="*"
+gunicorn="*"
+Pillow="*"
+psycopg2="*"
+pytz="*"
+sqlparse="*"
+whitenoise="*"
 
 [requires]
 python_version = "3.8"
