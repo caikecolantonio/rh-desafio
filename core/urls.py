@@ -1,5 +1,5 @@
 from django.urls import path, include
-from . import view
+from rh-desafio.core import view
 
 
 app_name = 'core'
